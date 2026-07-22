@@ -87,6 +87,9 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', serif; font-weight: 500; color: 
 .nav-links { display: flex; gap: 32px; align-items: center; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; }
 .nav-links a { color: var(--muted); }
 .nav-links a:hover { color: var(--gold-light); }
+.nav-actions { display: flex; align-items: center; gap: 16px; }
+.nav-ig { display: inline-flex; color: var(--muted); }
+.nav-ig:hover { color: var(--gold-light); }
 
 /* Hero */
 .hero {
@@ -230,6 +233,30 @@ h1, h2, h3 { font-family: 'Cormorant Garamond', serif; font-weight: 500; color: 
 .dif h3 { font-size: 22px; margin: 0 0 8px; }
 .dif p { font-size: 14px; line-height: 1.6; color: var(--muted-2); margin: 0; }
 
+/* Como funciona */
+.como { padding: 100px 6vw 90px; }
+.como-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; max-width: 1000px; margin: 0 auto; }
+.como-step { position: relative; text-align: center; padding: 34px 22px 26px; border: 1px solid var(--line-18); background: var(--panel); }
+.como-num {
+  position: absolute;
+  top: -16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+  color: var(--btn-text);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.como-step h3 { font-size: 22px; margin: 0 0 8px; }
+.como-step p { font-size: 14px; line-height: 1.6; color: var(--muted-2); margin: 0; }
+
 /* Depoimentos */
 .depoimentos { padding: 100px 0; }
 .depoimentos .section-head { margin-bottom: 50px; padding: 0 6vw; }
@@ -341,6 +368,8 @@ details.faq p { font-size: 15.5px; line-height: 1.8; color: var(--muted); margin
 }
 .footer-logo { font-family: 'Great Vibes', cursive; color: var(--gold); font-size: 24px; }
 .footer-info { font-size: 13px; color: var(--muted-2); }
+.footer-ig { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; letter-spacing: .06em; color: var(--gold); }
+.footer-ig:hover { color: var(--gold-light); }
 .footer-copy { font-size: 12px; color: var(--muted-3); }
 
 /* Floating WhatsApp */
@@ -374,6 +403,7 @@ details.faq p { font-size: 15.5px; line-height: 1.8; color: var(--muted); margin
 }
 
 @media (max-width: 760px) {
+  .como-grid { grid-template-columns: 1fr; gap: 34px; max-width: 420px; }
   .cards-grid { display: flex; flex-direction: column; gap: 24px; }
   .cards-grid .stack-card { position: sticky; top: 88px; }
   .t-track { animation: none; width: auto; flex-direction: column; gap: 24px; }
