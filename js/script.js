@@ -20,29 +20,60 @@
     marquee.innerHTML = new Array(20 + 1).join(itemHtml);
   }
 
-  // Depoimentos — prints de avaliações do Google (dep-1 a dep-4 aparecem
-  // automaticamente quando os arquivos forem adicionados em img/)
-  var deps = ['dep-1', 'dep-2', 'dep-3', 'dep-4', 'dep-5'];
+  // Depoimentos — avaliações reais publicadas no Google, recriadas em HTML
+  var reviews = [
+    {
+      name: 'Paula Oliveira',
+      count: '6 avaliações',
+      initial: 'P',
+      color: '#00897b',
+      text: 'Profissional incrível. Recomendo de olhos fechados. Humana, compreensiva. Sempre disposta e orienta com ajuda da melhor forma.'
+    },
+    {
+      name: 'Amanda moura jorge',
+      count: '1 avaliação',
+      initial: 'A',
+      color: '#d81b60',
+      text: 'A Gabi é sensacional, e tem me ajudado muito a compreender meus sentimentos e a validá-los. Grata por encontrar alguém, que me acolhe, e me ensina tanto, principalmente no meu relacionamento com os meus filhos.'
+    },
+    {
+      name: 'barbara ramalho',
+      count: '6 avaliações',
+      initial: 'b',
+      color: '#8e24aa',
+      text: 'A Gabi é uma profissional extremamente acolhedora, empática, flexível! Sempre me ajudou muito com as minhas demandas e foi fundamental na adaptação escolar do meu filho!! ❤️'
+    },
+    {
+      name: 'Cristiane Ribeiro',
+      count: '3 avaliações',
+      initial: 'C',
+      color: '#e65100',
+      text: 'A Gabriela é uma profissional maravilhosa! Acolhedora, ela me fez sentir confiança desde a primeira sessão. Foi fundamental para a minha vida.'
+    },
+    {
+      name: 'Alessandra Sopelsa Theiss',
+      count: '2 avaliações',
+      initial: 'A',
+      color: '#1e88e5',
+      text: 'Ótima profissional. A Gabriela tem um grande diferencial que é o conhecimento aprofundado nas áreas em que ela foca, principalmente no trabalho com mulheres, e ao mesmo tempo um acumulado de saberes sobre os mais diversos aspectos do desenvolvimento humano. Isso trás muita segurança pro tratamento. Obrigada por tanto, Gabi!'
+    }
+  ];
   var track = document.getElementById('t-track');
   if (track) {
-    function cardHtml(slot) {
+    function cardHtml(r) {
       return (
-        '<div class="t-card">' +
-        '<div class="t-shot">' +
-        '<img src="img/' + slot + '.webp" alt="Avaliação publicada no Google">' +
-        '<div class="t-placeholder"><span class="stars">★★★★★</span><span>Avaliação 5,0 no Google</span></div>' +
+        '<div class="t-card"><div class="g-review">' +
+        '<div class="g-head">' +
+        '<span class="g-avatar" style="background:' + r.color + '">' + r.initial + '</span>' +
+        '<span class="g-who"><span class="g-name">' + r.name + '</span><span class="g-count">' + r.count + '</span></span>' +
+        '</div>' +
+        '<div class="g-meta"><span class="g-stars">★★★★★</span><span class="g-when">3 anos atrás</span></div>' +
+        '<p class="g-text">' + r.text + '</p>' +
         '</div></div>'
       );
     }
-    var cards = deps.map(cardHtml).join('');
+    var cards = reviews.map(cardHtml).join('');
     track.innerHTML = cards + '<div class="t-dup">' + cards + '</div>';
-    track.querySelectorAll('.t-shot img').forEach(function (img) {
-      function ok() {
-        img.closest('.t-card').classList.add('t-loaded');
-      }
-      if (img.complete && img.naturalWidth > 0) ok();
-      else img.addEventListener('load', ok);
-    });
   }
 
   // Reveal on scroll

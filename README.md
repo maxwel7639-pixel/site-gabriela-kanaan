@@ -12,17 +12,13 @@ js/script.js    — links de WhatsApp, marquee, depoimentos, reveal, tilt
 img/            — fotos e imagens dos cards
 ```
 
-## Pendência: prints de avaliações do Google
+## Depoimentos
 
-A seção **Depoimentos** tem 5 espaços para prints de avaliações. Só o print da
-Alessandra (`img/dep-5.webp`) veio completo na exportação do design — os outros 4
-ficaram indisponíveis (limite de leitura da exportação).
-
-Para completar: salvar os prints como `img/dep-1.webp`, `img/dep-2.webp`,
-`img/dep-3.webp` e `img/dep-4.webp` (pode ser `.webp` gerado de screenshot; proporção
-livre, o card usa `object-fit: contain`). **Nenhuma mudança de código é necessária** —
-cada card mostra um placeholder discreto ("★★★★★ Avaliação 5,0 no Google") até o
-arquivo existir, e passa a exibir o print automaticamente quando ele é adicionado.
+As 5 avaliações reais do Google (Paula, Amanda, barbara, Cristiane e Alessandra) são
+renderizadas em HTML no estilo do card de avaliação do Google — texto nítido em qualquer
+tela, sem depender de screenshot. Os dados ficam no array `reviews` em `js/script.js`.
+Os avatares usam a inicial colorida (padrão do Google); quem tem foto de perfil no
+Google aparece com inicial mesmo assim.
 
 ## Contato configurado
 
